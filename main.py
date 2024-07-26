@@ -6,10 +6,10 @@ app.secret_key = os.urandom(24)  # Generate a random secret key
 
 # Options for each part of the sentence
 options = {
-    'w': ['mother', 'father', 'sister', 'brother'],
-    'x': ['kind', 'strict', 'funny', 'smart'],
-    'y': ['shaped', 'influenced', 'changed', 'defined'],
-    'z': ['future', 'perspective', 'career', 'values']
+    'w': ['My mother is', 'My father is', 'My aunt is', 'My sister is'],
+    'x': ['a leader', 'a visionary', 'a caregiver', 'a mentor'],
+    'y': ['and that influenced my', 'and that formed my', 'and that defined my', 'and that nurtured my'],
+    'z': ['resilience', 'approach to challenges', 'courage', 'core values']
 }
 
 step_names = {
@@ -19,15 +19,6 @@ step_names = {
     'z': 'Step 4',
 }
 
-sentence_structure = {
-    'wxyz': { 
-        "1": f"{session['w']} is a "
-        "2": f"{session['x']} and that ",
-        "3": f"{session['y']} my "
-        "4": f"{session['z']}"
-    }
-    
-             
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -67,13 +58,13 @@ def reset():
 def build_sentence():
     sentence = "My "
     if '1' in session:
-        sentence += f"{session['w']} is a "
+        sentence += session['w']
     if '2' in session:
-        sentence += f"{session['x']} and that ",
+        sentence += session['x']
     if '3' in session:
-        sentence += f"{session['y']} my "
+        sentence += session['y']
     if '4' in session:
-        sentence += f"{session['z']}"
+        sentence += session['z']
     return sentence
 
 if __name__ == '__main__':
