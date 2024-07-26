@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Sentence</title>
+</head>
+<body>
+    <h1>Build Your Sentence</h1>
+    <p>Current sentence: {{ sentence }}</p>
+
+    {% if current_step != 'complete' %}
+        <form method="POST">
+            <h2>Choose a {{ current_step }}:</h2>
+            {% for option in options %}
+                <input type="radio" id="{{ option }}" name="choice" value="{{ option }}" required>
+                <label for="{{ option }}">{{ option }}</label><br>
+            {% endfor %}
+            <br>
+            <input type="submit" value="Next">
+        </form>
+    {% else %}
+        <p>Your sentence is complete!</p>
+    {% endif %}
+    <br>
+    <a href="/reset">Start Over</a>
+</body>
+</html>
