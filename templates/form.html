@@ -4,25 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Build Your Sentence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .sentence {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .option {
+            display: inline-block;
+        }
+        .option input[type="radio"] {
+            display: none;
+        }
+        .option label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option input[type="radio"]:checked + label {
+            background-color: #007bff;
+            color: white;
+        }
+        input[type="submit"], .reset-link {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .reset-link {
+            background-color: #dc3545;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <h1>Build Your Sentence</h1>
-    <p>Current sentence: {{ sentence }}</p>
-
+    <p class="sentence">{{ sentence }}</p>
+    
     {% if current_step != 'complete' %}
         <form method="POST">
             <h2>Choose a {{ current_step }}:</h2>
-            {% for option in options %}
-                <input type="radio" id="{{ option }}" name="choice" value="{{ option }}" required>
-                <label for="{{ option }}">{{ option }}</label><br>
-            {% endfor %}
-            <br>
+            <div class="options">
+                {% for option in options %}
+                    <div class="option">
+                        <input type="radio" id="{{ option }}" name="choice" value="{{ option }}" required>
+                        <label for="{{ option }}">{{ option }}</label>
+                    </div>
+                {% endfor %}
+            </div>
             <input type="submit" value="Next">
         </form>
     {% else %}
         <p>Your sentence is complete!</p>
     {% endif %}
-    <br>
-    <a href="/reset">Start Over</a>
+    <a href="/reset" class="reset-link">Start Over</a>
 </body>
 </html>
