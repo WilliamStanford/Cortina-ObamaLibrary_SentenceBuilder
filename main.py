@@ -57,13 +57,13 @@ def reset():
 
 def build_sentence():
     sentence = "My "
-    if '1' in session:
+    if 'w' in session:
         sentence += session['w']
-    if '2' in session:
+    if 'x' in session:
         sentence += session['x']
-    if '3' in session:
+    if 'y' in session:
         sentence += session['y']
-    if '4' in session:
+    if 'z' in session:
         sentence += session['z']
     return sentence
 
