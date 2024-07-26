@@ -12,6 +12,14 @@ options = {
     'z': ['future', 'perspective', 'career', 'values']
 }
 
+step_names = {
+    'w': 'Step 1',
+    'x': 'Step 2',
+    'y': 'Step 3',
+    'z': 'Step 4'
+}
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if 'step' not in session:
@@ -38,6 +46,7 @@ def index():
     return render_template('form.html', 
                            options=options.get(current_step, []),
                            current_step=current_step,
+                           step_name=step_name,
                            sentence=build_sentence())
 
 @app.route('/reset')
