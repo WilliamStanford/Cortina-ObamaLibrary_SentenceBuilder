@@ -13,17 +13,26 @@ options = {
 }
 
 step_names = {
-    'w': 'Step 1',
+    'w': 'Step 1', 
     'x': 'Step 2',
     'y': 'Step 3',
-    'z': 'Step 4'
+    'z': 'Step 4',
 }
 
+sentence_structure = {
+    'wxyz': { 
+        "1": f"{session['w']} is a "
+        "2": f"{session['x']} and that ",
+        "3": f"{session['y']} my "
+        "4": f"{session['z']}"
+    }
+    
+             
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if 'step' not in session:
-        session['step'] = 'w'
+        session['step'] = '1'
 
     if request.method == 'POST':
         choice = request.form.get('choice')
@@ -31,13 +40,13 @@ def index():
 
         session[current_step] = choice
 
-        if current_step == 'w':
-            session['step'] = 'x'
-        elif current_step == 'x':
-            session['step'] = 'y'
-        elif current_step == 'y':
-            session['step'] = 'z'
-        elif current_step == 'z':
+        if current_step == '1':
+            session['step'] = '2'
+        elif current_step == '2':
+            session['step'] = '3'
+        elif current_step == '3':
+            session['step'] = '4'
+        elif current_step == '4':
             session['step'] = 'complete'
 
         return redirect(url_for('index'))
@@ -57,14 +66,14 @@ def reset():
 
 def build_sentence():
     sentence = "My "
-    if 'w' in session:
-        sentence += f"{session['w']} is a "
-    if 'x' in session:
-        sentence += f"{session['x']} and that "
-    if 'y' in session:
-        sentence += f"{session['y']} my "
-    if 'z' in session:
-        sentence += f"{session['z']}"
+    if '1' in session:
+        sentence += sentence_structure['wxyz']['1']
+    if '2' in session:
+        sentence += sentence_structure['wxyz']['2']
+    if '3' in session:
+        sentence += sentence_structure['wxyz']['3']
+    if '4' in session:
+        sentence += sentence_structure['wxyz']['4']
     return sentence
 
 if __name__ == '__main__':
