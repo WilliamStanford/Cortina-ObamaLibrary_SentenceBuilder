@@ -32,7 +32,7 @@ sentence_structure = {
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if 'step' not in session:
-        session['step'] = '1'
+        session['step'] = 'w'
 
     if request.method == 'POST':
         choice = request.form.get('choice')
@@ -40,13 +40,13 @@ def index():
 
         session[current_step] = choice
 
-        if current_step == '1':
-            session['step'] = '2'
-        elif current_step == '2':
-            session['step'] = '3'
-        elif current_step == '3':
-            session['step'] = '4'
-        elif current_step == '4':
+        if current_step == 'w':
+            session['step'] = 'x'
+        elif current_step == 'x':
+            session['step'] = 'y'
+        elif current_step == 'y':
+            session['step'] = 'z'
+        elif current_step == 'z':
             session['step'] = 'complete'
 
         return redirect(url_for('index'))
@@ -67,13 +67,13 @@ def reset():
 def build_sentence():
     sentence = "My "
     if '1' in session:
-        sentence += sentence_structure['wxyz']['1']
+        sentence += f"{session['w']} is a "
     if '2' in session:
-        sentence += sentence_structure['wxyz']['2']
+        sentence += f"{session['x']} and that ",
     if '3' in session:
-        sentence += sentence_structure['wxyz']['3']
+        sentence += f"{session['y']} my "
     if '4' in session:
-        sentence += sentence_structure['wxyz']['4']
+        sentence += f"{session['z']}"
     return sentence
 
 if __name__ == '__main__':
