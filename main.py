@@ -43,6 +43,7 @@ def index():
         return redirect(url_for('index'))
 
     current_step = session['step']
+    step_name = step_names.get(current_step, 'Complete')
     return render_template('form.html', 
                            options=options.get(current_step, []),
                            current_step=current_step,
