@@ -46,15 +46,15 @@ def reset():
     return redirect(url_for('index'))
 
 def build_sentence():
-    sentence = "My"
+    sentence = "My "
     if 'w' in session:
-        sentence += f" {session['w']}"
+        sentence += f"{session['w']} is a "
     if 'x' in session:
-        sentence += f" is a {session['x']}"
+        sentence += f"{session['x']} and that "
     if 'y' in session:
-        sentence += f" and that {session['y']}"
+        sentence += f"{session['y']} my "
     if 'z' in session:
-        sentence += f" my {session['z']}"
+        sentence += f"{session['z']}"
     return sentence
 
 if __name__ == '__main__':
