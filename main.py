@@ -58,13 +58,13 @@ def reset():
 def build_sentence():
     sentence = ""
     if 'w' in session:
-        sentence += session['w']
+        sentence += session['w'] + ' '
     if 'x' in session:
-        sentence += session['x']
+        sentence += session['x'] + ' '
     if 'y' in session:
-        sentence += session['y']
+        sentence += session['y'] + ' '
     if 'z' in session:
-        sentence += session['z']
+        sentence += session['z'] + ' '
     return sentence
 
 if __name__ == '__main__':
