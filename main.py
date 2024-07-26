@@ -56,7 +56,7 @@ def reset():
     return redirect(url_for('index'))
 
 def build_sentence():
-    sentence = "My "
+    sentence = ""
     if 'w' in session:
         sentence += session['w']
     if 'x' in session:
