@@ -5,10 +5,17 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Generate a random secret key
 
 # Options for each part of the sentence
+#options = {
+#    'w': ['My mother is', 'My father is', 'My aunt is', 'My sister is'],
+#    'x': ['a leader', 'a visionary', 'a caregiver', 'a mentor'],
+#    'y': ['and that influenced my', 'and that formed my', 'and that defined my', 'and that nurtured my'],
+#    'z': ['resilience', 'approach to challenges', 'courage', 'core values']
+#}
+
 options = {
-    'w': ['My mother is', 'My father is', 'My aunt is', 'My sister is'],
-    'x': ['a leader', 'a visionary', 'a caregiver', 'a mentor'],
-    'y': ['and that influenced my', 'and that formed my', 'and that defined my', 'and that nurtured my'],
+    'w': ['mother', 'father', 'aunt', 'sister'],
+    'x': ['leader', 'visionary', 'caregiver', 'mentor'],
+    'y': ['influenced', 'formed', 'defined', 'nurtured'],
     'z': ['resilience', 'approach to challenges', 'courage', 'core values']
 }
 
