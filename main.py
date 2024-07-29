@@ -20,37 +20,51 @@ options = {
 }
 
 step_names = {
-    'w': 'Step 1', 
+    'w': 'Step 1',
     'x': 'Step 2',
     'y': 'Step 3',
-    'z': 'Step 4',
+    'z': 'Step 4'
 }
 
+sentence_structures = [
+    "My {w} is a {x} who {y} my {z}.",
+    "The {x} nature of my {w} {y} my {z} significantly.",
+    "In my life, my {x} {w} has greatly {y} my {z}.",
+    "I attribute my {z} to my {w}, whose {x} personality {y} me.",
+    "My {z} was profoundly {y} by my {w}, a truly {x} individual."
+]
+
+def choose_sentence_structure():
+    return random.choice(sentence_structures)
+
+def get_structure_order(structure):
+    return re.findall(r'\{(\w)\}', structure)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if 'step' not in session:
-        session['step'] = 'w'
+    if 'structure' not in session:
+        session['structure'] = choose_sentence_structure()
+        session['order'] = get_structure_order(session['structure'])
+        session['current_index'] = 0
 
     if request.method == 'POST':
         choice = request.form.get('choice')
-        current_step = session['step']
-
+        current_step = session['order'][session['current_index']]
         session[current_step] = choice
-
-        if current_step == 'w':
-            session['step'] = 'x'
-        elif current_step == 'x':
-            session['step'] = 'y'
-        elif current_step == 'y':
-            session['step'] = 'z'
-        elif current_step == 'z':
-            session['step'] = 'complete'
-
+        
+        session['current_index'] += 1
+        if session['current_index'] >= len(session['order']):
+            session['current_index'] = 'complete'
+        
         return redirect(url_for('index'))
-
-    current_step = session['step']
-    step_name = step_names.get(current_step, 'Complete')
+    
+    if session.get('current_index') == 'complete':
+        current_step = 'complete'
+    else:
+        current_step = session['order'][session['current_index']]
+    
+    step_name = f"Step {session['current_index'] + 1}" if current_step != 'complete' else 'Complete'
+    
     return render_template('form.html', 
                            options=options.get(current_step, []),
                            current_step=current_step,
@@ -63,16 +77,13 @@ def reset():
     return redirect(url_for('index'))
 
 def build_sentence():
-    sentence = ""
-    if 'w' in session:
-        sentence += session['w'] + ' '
-    if 'x' in session:
-        sentence += session['x'] + ' '
-    if 'y' in session:
-        sentence += session['y'] + ' '
-    if 'z' in session:
-        sentence += session['z'] + ' '
-    return sentence
+    if session.get('current_index') == 'complete':
+        return session['structure'].format(**{k: session.get(k, '_____') for k in 'wxyz'})
+    else:
+        partial_structure = session['structure']
+        for part in session['order'][session['current_index']:]:
+            partial_structure = partial_structure.split('{' + part + '}')[0]
+        return partial_structure.format(**{k: session.get(k, '') for k in 'wxyz'}).strip()
 
 if __name__ == '__main__':
     app.run(debug=True)
