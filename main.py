@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, session, redirect, url_for
 import os
+import random
+import re
+
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)  # Generate a random secret key
