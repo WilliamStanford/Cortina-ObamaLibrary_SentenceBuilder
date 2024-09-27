@@ -1,7 +1,5 @@
-Family Reflection App
+Obama Library Structured Sentence Builder
 =====================
-
-This application helps users reflect on their family relationships by generating personalized sentences based on their input.
 
 Installation
 ------------
