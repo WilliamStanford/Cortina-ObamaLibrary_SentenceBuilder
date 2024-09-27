@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Your Sentence</title>
+    <title>Family Reflection - Choose Relative</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,16 +15,13 @@
             margin: 0;
             text-align: center;
         }
-        .sentence {
-            font-size: 24px;
-            margin-bottom: 30px;
-        }
         .options {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 20px;
+            max-width: 800px;
         }
         .option {
             display: inline-block;
@@ -44,41 +41,30 @@
             background-color: #007bff;
             color: white;
         }
-        input[type="submit"], .reset-link {
+        input[type="submit"] {
             padding: 10px 20px;
             background-color: #28a745;
             color: white;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            text-decoration: none;
             font-size: 16px;
-        }
-        .reset-link {
-            background-color: #dc3545;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
-    <h1>{{ step_name }}</h1>
-    <p class="sentence">{{ sentence }}</p>
-    
-    {% if current_step != 'complete' %}
-        <form method="POST">
-            <div class="options">
-                {% for option in options %}
-                    <div class="option">
-                        <input type="radio" id="{{ option }}" name="choice" value="{{ option }}" required>
-                        <label for="{{ option }}">{{ option }}</label>
-                    </div>
-                {% endfor %}
-            </div>
-            <input type="submit" value="Next">
-        </form>
-    {% else %}
-        <p>Your sentence is complete!</p>
-    {% endif %}
-    <a href="{{ url_for('reset') }}" class="reset-link">Start Over</a>
+    <h1>Family Reflection</h1>
+    <p>Who shaped you?</p>
+    <form action="{{ url_for('choose_shaper') }}" method="post">
+        <div class="options">
+            {% for option in shaper_options %}
+                <div class="option">
+                    <input type="radio" id="{{ option }}" name="shaper" value="{{ option }}" required>
+                    <label for="{{ option }}">{{ option }}</label>
+                </div>
+            {% endfor %}
+        </div>
+        <input type="submit" value="Next">
+    </form>
 </body>
 </html>

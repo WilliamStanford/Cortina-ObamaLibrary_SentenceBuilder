@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Family Reflection - Start</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+        .option {
+            display: inline-block;
+        }
+        .option input[type="checkbox"] {
+            display: none;
+        }
+        .option label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .option input[type="checkbox"]:checked + label {
+            background-color: #007bff;
+            color: white;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Personal Reflection</h1>
+    <p>Think of yourself and pick up to four words:</p>
+    <form action="{{ url_for('choose_words') }}" method="post" id="wordForm">
+        <div class="options">
+            {% for option in word_options %}
+                <div class="option">
+                    <input type="checkbox" id="{{ option }}" name="words" value="{{ option }}">
+                    <label for="{{ option }}">{{ option }}</label>
+                </div>
+            {% endfor %}
+        </div>
+        <input type="submit" value="Next">
+    </form>
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', () => {
+                const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+                if (checked.length > 4) {
+                    checkbox.checked = false;
+                    alert('You can only select up to 4 words.');
+                }
+            });
+        });
+        document.getElementById('wordForm').addEventListener('submit', (e) => {
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+            if (checked.length === 0) {
+                e.preventDefault();
+                alert('Please select at least one word.');
+            }
+        });
+    </script>
+</body>
+</html>

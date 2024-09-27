@@ -1,0 +1,76 @@
+{
+    "self_words": [
+        "Smart", "Kind", "Funny", "White", "Curious", "Creative", "Anxious", "Sensitive",
+        "Friend", "Dependable", "Shy", "Stubborn", "Father", "Mother", "Husband", "Wife",
+        "Compassionate", "Empathetic", "Passionate", "Introvert", "Extrovert", "Athlete",
+        "Strong", "Adventurous", "Honest", "Independent", "Loyal", "Optimistic", "Pessimistic",
+        "Teacher", "Rebel", "Fearless", "Timid", "Immigrant", "Traditional", "Religious",
+        "faithful", "Loving", "Jewish", "Christian", "Muslim", "African American", "Devoted",
+        "Fun", "Reliable", "Queer"
+    ],
+    "shapers": [
+        "mother", "father", "aunt", "uncle", "sister", "brother", 
+        "grandmother", "grandfather", "cousin", "niece", "nephew",
+        "stepmother", "stepfather", "stepsister", "stepbrother",
+        "half-sister", "half-brother", "great-aunt", "great-uncle",
+        "mother-in-law", "father-in-law", "sister-in-law", "brother-in-law",
+        "daughter", "son", "granddaughter", "grandson"
+    ],
+    "family_words": [
+        "Heritage", "Traditional", "Community", "Guidance", "Faith", "Resilience", "Unity",
+        "Blended", "Adaptive", "Evolving", "Steady", "Overprotective", "Challenging", "Nuclear",
+        "Modern", "Complicated", "Warm", "Caring", "Loving", "Close-Knit", "Devoted", "Disjointed",
+        "Religious", "Supportive", "Diverse", "Multicultural", "Unique", "Multigenerational",
+        "Distant", "Loyal", "Protective", "Compassionate", "Enduring", "Goofy", "Critical",
+        "Predictable", "Respectful", "Resourceful", "Isolated", "Estranged", "Average", "Generous",
+        "Playful", "Chaotic", "Divisive", "Apathetic", "Inclusive", "Patient", "Thriving", "Thoughtful"
+    ],
+    "x": [
+        "a leader", "a healer", "a caregiver", "an innovator", "a teacher",
+        "an artist", "a scientist", "an entrepreneur", "a philosopher", "a visionary",
+        "a counselor", "an advocate", "a diplomat", "a storyteller", "a problem-solver",
+        "a compassionate soul", "an eternal optimist", "a patient listener", "a courageous spirit",
+        "a nurturing presence", "a gentle guide", "an empathetic heart", "a lifelong learner",
+        "a humble helper", "an open-minded explorer", "a generous giver", "a calming influence",
+        "a curious questioner", "a mindful observer", "a selfless volunteer"
+    ],
+    "y": [
+        "influenced", "shaped", "inspired", "nurtured", "guided",
+        "fostered", "cultivated", "instilled", "awakened", "strengthened",
+        "developed", "ignited", "encouraged", "molded", "refined",
+        "catalyzed", "stimulated", "enhanced", "amplified", "deepened",
+        "illuminated", "galvanized", "empowered", "transformed", "elevated",
+        "enriched", "fortified", "pioneered", "championed", "revolutionized"
+    ],
+    "z": [
+        "resilience", "empathy", "creativity", "integrity", "critical thinking",
+        "self-confidence", "adaptability", "perseverance", "emotional intelligence", "cultural awareness",
+        "leadership skills", "communication skills", "problem-solving abilities", "work ethic", "curiosity",
+        "sense of purpose", "mindfulness", "innovation", "compassion", "self-discipline",
+        "social responsibility", "growth mindset", "assertiveness", "time management", "conflict resolution skills",
+        "financial literacy", "environmental consciousness", "digital literacy", "ethical decision-making", "global perspective"
+    ],
+    "sentence_structures": [
+        {"template": "My {shaper} is {x} and that {y} my {z}", "x_type": "x", "summary_word": "Direct"},
+        {"template": "My {shaper}, {x} in nature, consistently {y} my {z} with their actions.", "x_type": "x", "summary_word": "Consistent"},
+        {"template": "Through the years, my {shaper} embodied the attitude of {x}, which gradually {y} my {z}.", "x_type": "x", "summary_word": "Gradual"},
+        {"template": "In moments of doubt, my {shaper}, ever {x}, effortlessly {y} my {z}.", "x_type": "x", "summary_word": "Supportive"},
+        {"template": "Growing up, I watched my {shaper}, {x} personified, unknowingly {y} my {z}.", "x_type": "x", "summary_word": "Observational"},
+        {"template": "With every interaction, my {shaper}, the epitome of {x}, subtly {y} my {z}.", "x_type": "x", "summary_word": "Subtle"},
+        {"template": "My {shaper}'s reputation as {x} in our community actively {y} my own {z}.", "x_type": "x", "summary_word": "Influential"},
+        {"template": "During challenging times, my {shaper}, always {x}, intentionally {y} my {z}.", "x_type": "x", "summary_word": "Resilient"},
+        {"template": "Reflecting on my upbringing, I realize my {shaper}, {x} at heart, profoundly {y} my {z}.", "x_type": "x", "summary_word": "Reflective"},
+        {"template": "My {shaper}, in their role as {x}, consistently {y} the foundations of my {z}.", "x_type": "x", "summary_word": "Foundational"},
+        {"template": "Day by day, my {shaper}, a true {x} in every sense, steadily {y} my {z}.", "x_type": "x", "summary_word": "Persistent"},
+        {"template": "In times of celebration and hardship alike, my {shaper}, being {x}, invariably {y} my {z}.", "x_type": "x", "summary_word": "Unwavering"},
+        {"template": "Through both words and actions, my {shaper}, {x} to the core, actively {y} my {z}.", "x_type": "x", "summary_word": "Holistic"},
+        {"template": "In times of celebration and hardship alike, my {shaper}, being {x}, invariably {y} my {z}.", "x_type": "x", "summary_word": "Unwavering"},
+        {"template": "Unbeknownst to them, my {shaper}'s demeanor as {x} silently {y} my {z} over time.", "x_type": "x", "summary_word": "Subconscious"},
+        {"template": "My {shaper}'s approach as {x} to life's challenges profoundly {y} my own {z}.", "x_type": "x", "summary_word": "Transformative"},
+        {"template": "In the tapestry of my life, my {shaper}'s influence as {x} intricately {y} the threads of my {z}.", "x_type": "x", "summary_word": "Interwoven"},
+        {"template": "From a young age, my {shaper}'s spirit as {x} inadvertently {y} the trajectory of my {z}.", "x_type": "x", "summary_word": "Formative"},
+        {"template": "Like a guiding star, my {shaper}, ever {x}, unfailingly {y} my {z}.", "x_type": "x", "summary_word": "Directional"},
+        {"template": "In the classroom of life, my {shaper}, {x} in every lesson, patiently {y} my {z}.", "x_type": "x", "summary_word": "Instructive"},
+        {"template": "Through the ebb and flow of life, my {shaper}'s presence as {x} consistently {y} the tides of my {z}.", "x_type": "x", "summary_word": "Stabilizing"}
+    ]
+}
